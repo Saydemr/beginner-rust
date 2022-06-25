@@ -10,4 +10,12 @@
 // * Print the variable within the while loop
 // * Do not use break to exit the loop
 
-fn main() {}
+fn main() 
+{
+    let mut backwards_counter  = 5;
+    while backwards_counter > 0 {
+        println!("{}", backwards_counter);
+        backwards_counter -= 1;
+    }
+    println!("done");
+}
