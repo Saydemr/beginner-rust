@@ -12,4 +12,18 @@
 // * Use a match expression to determine which message
 //   to print
 
-fn main() {}
+fn print_var_info(lte_100 : bool)
+{
+    match lte_100 {
+        false => println!("It's big!"),
+        true => println!("It's small!")
+    }
+}
+
+fn main() 
+{
+    let my_var : i32 = 100;
+    let lte_100 = my_var <= 100;
+    print_var_info(lte_100);
+    
+}
