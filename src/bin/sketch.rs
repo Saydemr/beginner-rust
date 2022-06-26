@@ -1,6 +1,6 @@
 
-
-#[derive(PartialEq, PartialOrd)] enum Access {
+#[allow(dead_code)]
+#[derive(PartialEq, PartialOrd)]  enum Access {
     Admin,
     Manager,
     User,
