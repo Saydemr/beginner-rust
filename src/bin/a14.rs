@@ -11,4 +11,29 @@
 // * Use an if expression to determine which person's info should be printed
 // * The name and colors should be printed using a function
 
-fn main() {}
+struct Person {
+    age : i8,
+    favorite_color : String,
+    name : String
+}
+
+impl Person {
+    fn print_info(&self) {
+        println!("Name : {}\nAge : {}\nFavorite Color : {}", self.name, self.age, self.favorite_color)
+    }
+}
+
+fn main() 
+{
+    let person_vector = vec![
+        Person {age : 10, favorite_color : "red".to_owned(), name : "duygu".to_owned()},
+        Person {age : 12, favorite_color : "black".to_owned(), name : "didem".to_owned()},
+        Person {age : 14, favorite_color : "blue".to_owned(), name : "rüya".to_owned()}
+    ];
+
+    for person in person_vector {
+        if person.age <= 10 {
+            person.print_info();
+        }
+    }
+}
