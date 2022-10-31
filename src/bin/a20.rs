@@ -24,6 +24,7 @@
 //   Reboot, reboot, REBOOT, etc.)
 use std::io;
 
+#[derive(PartialEq)]
 enum State {
     Off,
     Sleep,
@@ -46,14 +47,8 @@ impl State {
     }
 }
 
-fn get_input() -> io::Result<String>
-{
-    let mut buffer = String::new();
-    io::stdin().read_line(&mut buffer)?;
-    Ok(buffer.trim().to_owned())
-}
 
-fn print(state : &State) 
+fn print_action(state :  State) 
 {
     use State::*;
     match state {
@@ -66,12 +61,14 @@ fn print(state : &State)
 }
 
 fn main()
-{
-    let user_input = get_input();
-    let state = State::new(&user_input);
+{   
+    let mut buffer = String::new();
+    println!("Enter a power state: ");
+    let _user_input = io::stdin().read_line(&mut buffer);
+    let state = State::new(&buffer);
     if state != None {
-        match &state {
-            Option::Status => println!("{:?}", status),
+        match state {
+            Some(state) => print_action(state),
             _              => println!("Yeaak"),
         }
     }
