@@ -82,7 +82,7 @@ fn edit_bills_menu(bills: &mut Bills) {
     println!("Enter the new amount of the bill:");
     let amount = get_input().parse::<f32>().unwrap();
 
-    let mut checky = bills.remove(name).is_some();
+    let mut checky = bills.remove(name.clone());
     if checky {
         bills.add(Bill { name, amount });
         println!("Bill edited!");
